@@ -48,7 +48,8 @@
       <!-- Verified -->
       <div class="row mb-3 user-detail mt-4 offset-3" *ngFor="let user of allUsers" (click)="showIndividualUser(user)">
         <div class="col-lg-1 table-field">
-          <img src="{{getCountry(user.country)[0].image}}" alt="" style="width: 17px; margin-top: -5px"/><span
+<!--          <img src="{{getCountry(user.country)[0].image}}" alt="" style="width: 17px; margin-top: -5px"/>-->
+          <span
           style="font-size: 12px"> {{user.country}}</span>
         </div>
         <div class="col-lg-2 table-field">{{user.firstName}} {{user.lastName}}</div>
