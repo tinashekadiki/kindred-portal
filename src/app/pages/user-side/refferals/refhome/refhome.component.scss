@@ -1,0 +1,39 @@
+h1 {
+  font-family: BentonSans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #79828B
+}
+
+
+
+
+#create-form-btn {
+  margin-right: 20px;
+  background-color: #40C9BB;
+  border: none;
+  border-radius: 24px;
+  padding-right:30px;
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left:30px;
+}
+
+#import-form-btn {
+    margin-right: 20px;
+    border: 1px solid #333333;
+    border-radius: 24px;
+    color: #333333;
+    padding-right:30px;
+    padding-top:8px;
+    padding-bottom:8px;
+    padding-left:30px;
+    &:hover {
+      background-color: #40C9BB;
+      color: #ffffff;
+      border: none;
+    }
+}
+

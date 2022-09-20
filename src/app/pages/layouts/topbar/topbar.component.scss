@@ -1,0 +1,60 @@
+.main-row {
+
+  height: 83px !important;
+  padding: 10px;
+  background: #FFFFFF;
+  border: 0.3px solid rgba(170, 170, 170, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 15px rgba(170, 170, 170, 0.25);
+
+
+
+
+}
+
+#search-bar {
+  //full colum width
+  font-size: 18px;
+  width: 100%;
+  width: 793px;
+  height: 49px;
+  background: #FFFFFF;
+  border: 1px solid #AAAAAA;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 50px rgba(170, 170, 170, 0.25);
+  border-radius: 24px;
+  text-indent: 40px;
+  outline: none;
+  background-image: url("../../../../assets/icons/dash/search.svg");
+  background-repeat: no-repeat;
+  background-size: 20px 35px !important;
+  background-position: 15px 5px;
+}
+
+#profile-name {
+  font-family: BentonSans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 20px;
+  /* identical to box height, or 182% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+#profile-job {
+
+  font-family: BentonSans;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 20px;
+  /* identical to box height, or 182% */
+
+  text-align: center;
+
+  color: #000000;
+
+}

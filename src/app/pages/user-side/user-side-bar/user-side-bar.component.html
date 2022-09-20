@@ -1,0 +1,43 @@
+
+<div class="" style="overflow-y:scroll;">
+    <div class="sidebar-container">
+      <ul class="sidebar-navigation">
+        <li>
+          <a routerLink="/me/dash">
+            <img src="../../assets/icons/dash/home.svg" alt="dashboard" />
+            <span class="page-title">Home</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/me/roster">
+            <div>
+              <img
+                src="../../assets/icons/dash/user-verification.svg"
+                alt="dashboard"
+              />
+              <span class="page-title">Roster</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/ref/home" >
+            <img src="../../assets/icons/dash/refferals.svg" alt="refferals" />
+            <span class="page-title">Referral Forms</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/reports">
+            <img src="../../assets/icons/dash/reports.svg" alt="reports" />
+            <span class="page-title">Reports</span>
+          </a>
+        </li>
+        <li (click)="logout()" class="logout">
+          <a >
+            <img src="../../assets/icons/dash/logout.svg" alt="reports" />
+            <span class="page-title"> Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

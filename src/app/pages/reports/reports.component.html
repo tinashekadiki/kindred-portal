@@ -1,0 +1,107 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+  <div class="row mb-3 mt-3">
+    <div class="col-lg-9">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg offset-3">
+          <span id="column-title"
+            >Reports -7 downloads in the past 24 hours</span
+          >
+        </div>
+      </div>
+      <div class="row  mt-5">
+        <div class="col-lg offset-3">
+          <span id="select-one"
+            >Select one or more parameters below to create a report.Them
+            download the CSV generated</span
+          >
+        </div>
+      </div>
+      <div class="row  mt-3">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">Create report for</h6>
+          <select id="report-selector" name="reports"  (change)="prepareForDownload($event)">
+            <option value="Referrals">Referrals</option>
+            <option value="Referrals">Patients</option>
+            <option value="Referrals">Roster</option>
+            <option value="Referrals">Beds</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">Select speciality or subspeciality</h6>
+          <select class="form-control text-input" >
+            <option value={{spec.name}} *ngFor="let spec of autoCompleteOpts.specialitysupspeciality">{{spec.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row  mt-5">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">Select Facility</h6>
+          <select class="form-control text-input" >
+            <option value={{fac.name}} *ngFor="let fac of autoCompleteOpts.facilities">{{fac.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">Select Team</h6>
+          <select class="form-control text-input" >
+            <option value={{tm.name}} *ngFor="let tm of autoCompleteOpts.teams">{{tm.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row  mt-5">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">Start Date</h6>
+          <input type="datetime" class="dates" placeholder="mm-dd-yy" />
+        </div>
+      </div>
+      <div class="row  mt-5">
+        <div class="col-lg offset-3">
+          <h6 class="select-label">End Date</h6>
+          <input type="datetime" class="dates" placeholder="mm-dd-yy" />
+        </div>
+      </div>
+      <div class="row create-team">
+        <div class="col col-12 " style="text-align: center;">
+          <div (click)="generateReport()">
+            <a csvLink type="button" id="approve-btn" class="btn btn-primary btn-block" >DOWNLOAD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right side -->
+    <div class="col-lg-3 right-side">
+      <div class="row mb-5 mt-3">
+        <div class="col mt-3" id="right-section-title">Reports</div>
+        <div class="col">
+          <select name="cars" id="date-chooser" (change)="getReportHistory($event)">
+            <option value="today">Past 24 hours</option>
+              <option value="last_7_days">Past Week</option>
+              <option value="last_14_days">Past 2 Weeks</option>
+              <option value="last_30_days">Past Month</option>
+              <option value="year_to_date">Past Year</option>
+              <option value="all_time">All Time</option>
+          </select>
+        </div>
+      </div>
+      <h4 id="report-history-title" class="mb-5 mt-5">Report History</h4>
+      <div class="row history-tab" *ngFor="let rep of reportHistory">
+        <div class="col col-lg-6 mt-4" id ="history-title">{{rep.history.reportName}}</div>
+        <div class="col col-lg-4 mt-4 offset-2" id="download" (click)="setDataForDownload(rep.data)"><a csvLink  style="color: #40c9bb;">Download</a>
+        </div>
+        <p id="history-dates" class="mt-4"> {{rep.history.from}} to {{rep.history.to}}</p>
+        <div class="col col-lg-4 mt-4 mb-4" id ="history-creators">Creator {{rep.history.creator}} </div>
+        <div class="col col-lg-4 mt-4 mb-4" id ="history-creators">Date: {{rep.createdAt }} </div>
+        <div class="col col-lg-4 mt-4 mb-4" id ="history-creators">Time: 5:45pm (GMT +2)</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin" [fullScreen]="true">-->
+<!--    <p style="color: white">Loading...</p>-->
+<!--  </ngx-spinner>-->
+  <div id="content">
+<!--    <app-topbar></app-topbar>-->
+<!--<app-sidebar></app-sidebar>-->
+    <div class="row mb-3 mt-2 offset-2">
+      <div class="col-lg-9">
+        <div class="row mb-5 mt-2">
+          <div class="col-lg ">
+            <span id="column-title">CREATE A TEAM</span>
+          </div>
+        </div>
+        <div class="row mb-3 mt-2 ">
+            <div class="col-1 mb-2">
+                <img src="../../../assets/icons/dash/clinical-blank.svg">
+            </div>
+            <div class="col-11 mb-2" id="view-less" style="margin-top: 15px;">
+                <p>Edit Image</p>
+                <p>Delete Image</p>
+              </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Name of Team</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"   />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Name of Facility</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Type of Facility</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input" >
+                  <option value="Public">Public</option>
+                  <option value="Public">Private</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Speciality</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Sub Speciality</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Cell Phone Number</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Email Address</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Practice Number</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Type of Duty</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4 ">
+          <div class="col-11" id="subspectitile">
+            Location Details
+          </div>
+          <div class="col-1 " id="view-less">
+            View Less
+          </div>
+        </div>
+        <div class="row mb-3 mt-2 ">
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Country</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input">
+                  <option value={{country.name}} *ngFor="let country of countries" (click)="getAllStates(country.isoCode)">{{country.name}} ({{country.phonecode}})</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Province / State</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input" >
+                  <option value={{state.name}} *ngFor="let state of states" (click)="setLatitudeLongitude(state.latitude,state.longitude)">{{state.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Region</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input" >
+                  <option value={{country.name}} *ngFor="let country of regions">{{country.name}} </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Referral Cluster</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Address</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Latitude/ Longitude</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-2">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Working Hours</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="row create-team">
+            <div class="col col-12" style="text-align: center">
+              <button type="button" id="new-team-btn" class="btn btn-primary btn-block" (click)="createTeam()" >
+                SAVE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

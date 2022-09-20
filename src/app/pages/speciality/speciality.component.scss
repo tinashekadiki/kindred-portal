@@ -1,0 +1,286 @@
+#column-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333333;
+  }
+  
+  #total {
+    font-size: 14px;
+    line-height: 14px;
+    color: #79828b;
+  }
+  
+  #time-range {
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+  }
+  
+  #pagination-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #79828b;
+  }
+  
+  .table-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 13px;
+    color: #79828b;
+    text-transform: uppercase;
+  }
+  
+  .table-field {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 13px;
+    color: #333333;
+    white-space: nowrap;
+  }
+  
+  .user-detail {
+    background-color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .user-detail:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(168, 182, 200, 0.377226) -28.12%,
+      rgba(168, 182, 200, 0) 105.47%
+    );
+    opacity: 0.75;
+    box-shadow: 0px 2px 4px #ecf1f8;
+  }
+  
+  .scroll-div {
+    overflow-y: auto;
+    overflow-x: none;
+    height: 100%;
+    width: 100%;
+    // do not show scrollbar on x axis
+    overflow-x: hidden;
+  }
+  
+  /// right row
+  
+  #section-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333333;
+  }
+  
+  #right-section {
+    box-shadow: 0px 2px 4px #ecf1f8;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  
+  #refferal-summary {
+    font-size: 18px;
+    line-height: 18px;
+    color: #79828b;
+  }
+  
+  #view-less {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: #40c9bb;
+  }
+  
+  .view-profile {
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: #40c9bb;
+  }
+  
+  .refferal-summary-titles {
+    font-size: 14px;
+    line-height: 14px;
+    color: #a8b6c8;
+  }
+  
+  .refferal-summary-dates {
+    font-size: 12px;
+    line-height: 12px;
+    color: #979797;
+  }
+  
+  .refferal-summary-names {
+    font-size: 16px;
+    line-height: 16px;
+    color: #333333;
+  }
+  
+  .referal-status-title {
+    font-size: 14px;
+    line-height: 14px;
+  
+    color: #a8b6c8;
+  }
+  
+  .referal-status {
+    font-size: 16px;
+    line-height: 16px;
+  
+    color: #333333;
+  }
+  
+  .section-title-2 {
+    font-size: 18px;
+    line-height: 14px;
+  
+    color: #a8b6c8;
+  }
+  
+  .section-title-22 {
+    font-size: 14px;
+    line-height: 14px;
+  
+    color: #333333;
+  }
+  
+  .patient-details-title {
+    font-size: 14px;
+    line-height: 14px;
+    color: #a8b6c8;
+  }
+  
+  .patient-details {
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+  }
+  
+  .siunits {
+    font-size: 14px;
+    line-height: 14px;
+    color: #5f1771;
+  }
+  
+  .approve-buttons {
+    position: fixed;
+    background: #ffffff;
+    box-shadow: 3px 0px 4px rgba(0, 0, 0, 0.25);
+    left: 76%;
+    top: 90%;
+    width: 500px;
+    padding: 30px;
+    height: 116px;
+  }
+  
+  #approve-btn {
+    background: #40c9bb;
+    font-weight: 100;
+    border-radius: 17.0943px;
+    border: none;
+    width: 150px;
+    font-size: 16px;
+    line-height: 16px;
+    height: 34px;
+    text-align: center;
+    font-weight: 100;
+  }
+
+
+  #new-team-btn {
+    background: #40c9bb;
+    font-weight: 100;
+    border-radius: 17.0943px;
+    border: none;
+    width: 200px;
+    font-size: 16px;
+    line-height: 16px;
+    height: 34px;
+    text-align: center;
+    font-weight: 100;
+    margin-top:15px
+  }
+  
+  #decline-btn {
+    color: #ff6e6e;
+    // make button only text
+    border: none;
+    background: none;
+    font-weight: 100;
+    width: 139px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+  }
+  
+  .create-team {
+    position: fixed;
+    background: #ffffff;
+  
+    left: 35%;
+    top: 90%;
+    width: 500px;
+    padding: 30px;
+    height: 116px;
+  
+  }
+  
+  .control-label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #a8b6c8;
+  }
+
+  .form-group {
+    margin-left: 10px;
+    padding-right: 10px;
+    width: 100% !important;
+  }
+  
+  .text-input {
+    background: #ffffff;
+    border: 1px solid rgba(168, 182, 200, 0.19568);
+    box-sizing: border-box;
+    border-radius: 25px;
+    color: #333333;
+  }
+  
+
+  #subspectitile {
+    font-size: 18px;
+    line-height: 18px;
+    
+    color: #79828B;
+  }
+
+  .speciality-title {
+    font-size: 13px;
+    line-height: 13px;
+    text-decoration-line: underline;
+    
+    color: #333333
+  }
+
+  #no-data {
+    // align center of div
+    width: 90%;
+    text-align: center;
+    margin-top: 300px !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #333333;
+  }

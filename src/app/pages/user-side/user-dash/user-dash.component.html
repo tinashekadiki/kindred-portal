@@ -1,0 +1,213 @@
+<!--<app-topbar></app-topbar>-->
+<!--<app-user-side-bar></app-user-side-bar>-->
+<div class="content-container">
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-sm">
+        <div class="row mb-3">
+          <!-- 2 colums -->
+          <div class="col-sm-5" id="left-side">Patients seen</div>
+          <div class="col-sm-1">Diagnosis</div>
+          <div class="col-sm-3" id="right-side">
+            <select name="cars" id="date-chooser" >
+              <option *ngFor="let item of diseases" value={{item}}>{{item}}</option>
+            </select>
+          </div>
+          <div class="col-sm-3" id="right-side">
+            <select class="form-control-sm " id="exampleFormControlSelect2" name="cars" id="date-chooser"
+            (change)="getUserDashboardReport($event,'Covid 19')"
+            >
+            <option value="today" class="dropdown-item">
+              Today
+            </option>
+            <option value="yesterday" class="dropdown-item">
+              Yesterday
+            </option>
+            <option value="last_7_days" class="dropdown-item" >
+              Last 7 Days
+            </option>
+            <option value="last_14_days" class="dropdown-item">
+              Last 14 Days
+            </option>
+            <option value="last_30_days" class="dropdown-item" >
+              Last 30 Days
+            </option>
+            <option value="last_60_days" class="dropdown-item" selected="selected">
+              Last 60 Days
+            </option>
+            <option value="last_90_days" class="dropdown-item">
+              Last 90 Days
+            </option>
+            <option value="year_to_date" class="dropdown-item">
+              Year To Date
+            </option>
+          </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12"><!--              [showGridLines]="true" (select)="onSelect($event)" (activate)="onActivate($event)"-->
+<!--            <ngx-charts-line-chart [view]="[900, 400]" [scheme]="colorScheme" [showXAxisLabel]="showXAxisLabel"-->
+<!--              [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [timeline]="timeline" [results]="dataPoints"-->
+
+<!--              (deactivate)="onDeactivate($event)" *ngIf="showLineGraph">-->
+<!--            </ngx-charts-line-chart>-->
+          </div>
+          <div class="col-sm-12 mb-5">
+            <div class="teams-bg">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-11 p-3">
+                    <span id="teams-title"> Teams </span><br />
+                    <span id="teams-title-2"> Number of Teams : {{NumberOfTeams}}</span>
+                  </div>
+                  <div class="col-sm-1 mt-3">
+                    <img src="../../assets/icons/signal.svg" alt="teams-logo" class="img-fluid" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="img-fluid" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Patients</span><br />
+                  <span id="pill-body">Readmission rate:</span><br />
+                  <span id="pill-footer">{{ReadmissionsRate}}%</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="img-fluid" />
+            </div>
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="img-fluid" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Referrals</span><br />
+                  <span id="pill-body">Avg Response Time:</span><br />
+                  <span id="pill-footer">{{ReferralResponse}} mins</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="stats-img" />
+            </div>
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="stats-img" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Beds</span><br />
+                  <span id="pill-body">Bed Occupancy:</span><br />
+                  <span id="pill-footer">{{BedsOccupancry}}%</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="stats-img" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="img-fluid" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Services</span><br />
+                  <span id="pill-body">Daily requests</span><br />
+                  <span id="pill-footer">{{DailyServices}}</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="stats-img" />
+            </div>
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="img-fluid" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Labs</span><br />
+                  <span id="pill-body">Coming soon</span><br />
+                  <span id="pill-footer">0%</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="stats-img" />
+            </div>
+            <div class="col-sm box-template">
+              <div class="row mt-3">
+                <div class="col col-lg-3">
+                  <img src="../../assets/icons/dash/patients.svg" alt="teams-lomgo" class="stats-img" />
+                </div>
+                <div class="col col-lg">
+                  <span id="pill-title">Pharmacies</span><br />
+                  <span id="pill-body">Coming soon:</span><br />
+                  <span id="pill-footer">0%</span>
+                </div>
+                <hr />
+              </div>
+              <img src="../../assets/icons/dash/stats.svg" alt="teams-lomgo" class="stats-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second section -->
+      <div class="col-sm" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); height: 100vh">
+        <!-- row -->
+        <div class="row mb-5">
+          <!-- 2 colums -->
+          <div class="col-sm-12" id="left-side">SUMMARY</div>
+        </div>
+        <!-- row -->
+        <div class="row">
+          <!-- 2 colums -->
+          <h1 id="stats-main-description">Average Waiting Time</h1>
+          <div class="col-sm-6 mt-3 stats-box-bg">
+            <p id="stats-title" class="mt-3">25 mins</p>
+            <p id="stats-description">Time to User Verification</p>
+          </div>
+          <div class="col-sm-6 mt-3 stats-box-bg">
+            <p id="stats-title" class="mt-3">1</p>
+            <p id="stats-description">Avg length of stay</p>
+          </div>
+
+          <!-- 2 colums -->
+          <h1 id="stats-main-description">Referrals</h1>
+          <div class="col-sm-6  mt-1 stats-box-bg">
+            <p id="stats-title" class="mt-3">15 mins</p>
+            <p id="stats-description">NAverage response time</p>
+          </div>
+          <div class="col-sm-6  mt-1 stats-box-bg">
+            <p id="stats-title" class="mt-3">79%</p>
+            <p id="stats-description">Resolution</p>
+          </div>
+
+          <!-- 2 colums -->
+          <div id="stats-main-description" class="col-sm-6 mb-3">Patients with</div>
+          <div class="col-sm mb-3">
+            <select name="cars" id="date-chooser" >
+              <option *ngFor="let item of diseases" value={{item}}>{{item}}</option>
+            </select>
+          </div>
+          <div class="col-sm-6  mt-1 stats-box-bg">
+            <p id="stats-title" class="mt-3">15 mins</p>
+            <p id="stats-description">NAverage response time</p>
+          </div>
+          <div class="col-sm-6  mt-1 stats-box-bg">
+            <p id="stats-title" class="mt-3">79%</p>
+            <p id="stats-description">Resolution</p>
+          </div>
+        </div>
+      </div>
+      <!-- end of second section -->
+    </div>
+  </div>
+</div>

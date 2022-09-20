@@ -1,0 +1,291 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content">
+  <!--  <app-topbar></app-topbar>-->
+  <!--  <app-sidebar></app-sidebar>-->
+  <div class="row mb-3 mt-3">
+    <div class="col-lg-9">
+      <!-- left section -->
+      <div class="row mb-3 mt-3">
+        <div class="col-lg offset-3">
+          <span id="column-title">Users ({{count}})</span>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-6 offset-3">
+          <img src="../../../assets/icons/userv/filter.svg" alt=""/>
+        </div>
+        <div class="col-lg">
+          <h5> Showing on page from <b> {{page}} -{{limit}}</b>
+            <span>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-end">
+                <li (click)="pagify(true)" class="page-item">
+                   <i class="fa fa-angle-left"></i>
+                </li>
+                <li (click)="pagify(false)" class="page-item">
+                 <i class="fa fa-angle-right"></i>
+                </li>
+              </ul>
+            </nav>
+          </span>
+          </h5>
+        </div>
+      </div>
+      <div class="row mb-3 offset-3">
+        <div class="col-lg-1">
+          <!-- empty -->
+        </div>
+        <div class="col-lg-2 table-title">Name</div>
+        <div class="col-lg-2 table-title">Email</div>
+        <div class="col-lg-3 table-title">Facility</div>
+        <div class="col-lg-2 table-title">Speciality</div>
+        <div class="col-lg-1 table-title">Status</div>
+        <div class="col-lg-1"></div>
+      </div>
+
+      <!-- Verified -->
+      <div class="row mb-3 user-detail mt-4 offset-3" *ngFor="let user of allUsers" (click)="showIndividualUser(user)">
+        <div class="col-lg-1 table-field">
+          <img src="{{getCountry(user.country)[0].image}}" alt="" style="width: 17px; margin-top: -5px"/><span
+          style="font-size: 12px"> {{user.country}}</span>
+        </div>
+        <div class="col-lg-2 table-field">{{user.firstName}} {{user.lastName}}</div>
+        <div class="col-lg-2 table-field">{{user.email}}</div>
+        <div class="col-lg-3 table-field">{{user.facility}}</div>
+        <div class="col-lg-2 table-field">{{user.speciality}}</div>
+        <div class="col-lg-1 table-field" *ngIf="user.is_verified === true">
+          <span class="badge alert-success" style="
+              background-color: #40c9bb;
+              color: #ffffff;
+              font-family: BentonSamns;
+              margin-top: -50px;
+              font-weight: 100;
+              width: 56px;
+              border-radius: 14.433px;
+            ">Verified</span>
+        </div>
+        <div class="col-lg-1 table-field" *ngIf="user.is_verified === false">
+          <span class="badge alert-success" style="
+              background-color: #ff6e6e;
+              color: #ffffff;
+              font-family: BentonSamns;
+              margin-top: -50px;
+              font-weight: 100;
+              width: 56px;
+              border-radius: 14.433px;
+            ">Unverified</span>
+        </div>
+        <div class="col-lg-1 table-field" *ngIf="user.is_active === true">Active</div>
+        <div class="col-lg-1 table-field" *ngIf="user.is_active === false">Domant</div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-3" id="right-section">
+      <div *ngIf="!userDetails._id">
+        <div class="row mb-3 mt-3">
+          <div class="col-lg-12">
+            <span id="column-title" style="margin-left: 15px">User Info</span>
+          </div>
+        </div>
+        <div class="row mb-3 mt-3" id="no-data">
+          <span class="col-lg" style="padding-top: 10px">Select a user to see detailed information here</span>
+        </div>
+      </div>
+      <!-- user detail expanded -->
+      <div class="scroll-div" *ngIf="userDetails._id">
+        <div class="row user-row" style="position: relative">
+          <div class="col-sm-1 mt-2">
+            <img src="../../../assets/icons/dash/hosp.png" style="height: 47px"/>
+            <br/>
+            <span class="badge alert-success" style="
+                background-color: #40c9bb;
+                color: #ffffff;
+                margin-left: 10px;
+                border-radius: 12px;
+                font-weight: 100;
+              ">Verified</span>
+          </div>
+          <div class="col-sm-8 mt-2 user-summary offset-2">
+            <div class="">
+              <div id="summary-text-body">
+                <label class="col-lg-12 mb-2">Name: {{userDetails.firstName}} {{userDetails.lastName}}</label>
+                <label class="col-lg-12 mb-2">City: {{userDetails.city}}</label>
+                <label class="col-lg-12 mb-2">Reg no: {{userDetails.reg_number}}</label>
+                <label class="col-lg-12 mb-2">Registration Status:
+                  <span style="color: #000000">{{ userDetails.activeStatus ? 'ACTIVE' : 'INACTIVE'}}</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="col mt-2 d-flex justify-content-center">
+            <img src="../../../../assets//icons/dash/profile.png" alt="" style="width: 90px"/>
+          </div>
+          <p class="d-flex justify-content-center" style="margin-top: -30px; color: #79828b; font-size: 11px">
+            Active User
+          </p>
+        </div>
+        <div class="row right-section" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); height: 100%">
+          <div class="col-lg-6 mt-5">
+            <h2 class="right-section-titles">Personal Information</h2>
+          </div>
+          <div class="col-lg-6 mt-5">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-1">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">First name</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.firstName" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Surname</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.lastName" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Country</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input">
+                  <option value="" *ngFor="let country of countries">
+                    {{country.name}} ({{country.phonecode}})
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Phone Number</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.phoneNumber" type="text" class="form-control text-input"
+                       id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Email Address</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.email" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <h2 class="right-section-titles">Professional Information</h2>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Type of Healthcare Worker</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.type" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Speciality</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.speciality" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Sub-speciality</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.sub_speciality" type="text" class="form-control text-input"
+                       id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Profession</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.occupation" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Registration Council</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.council" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-5">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Registration Number</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="userDetails.reg_number" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4 mb-2">
+            <h2 class="right-section-titles">Teams ({{userDetails.team.length}})</h2>
+          </div>
+          <div class="col-lg-6 mt-4 mb-2">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12" *ngFor="let teamrecord of userDetails.team">
+            <img src="../../../assets/icons/dash/teams-colored.svg" class="img-responsive img-thumbnail" alt=""
+                 style="border: none"/>
+            {{teamrecord}}
+          </div>
+
+        </div>
+        <div class="row mt-3 approve-buttons">
+          <!-- primary button -->
+          <div class="col-sm">
+            <button type="button" id="approve-btn" class="btn btn-primary btn-block" (click)="updateUser()"
+                    [disabled]="!userDetails._id.length">
+              SAVE CHANGES
+            </button>
+          </div>
+          <div class="col-sm">
+            <button type="button" id="decline-btn" class="btn btn-primary btn-block" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal" [disabled]="userDetails._id === ''">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to permanently delete this user?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deleteUser()" data-bs-dismiss="modal">Yes, Delete</button>
+        <button type="button" class="btn btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

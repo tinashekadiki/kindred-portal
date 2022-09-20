@@ -1,0 +1,281 @@
+#column-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #333333;
+}
+
+#pagination-title {
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #79828B;
+}
+
+.table-title {
+
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  color: #79828B;
+  text-transform: uppercase;
+
+}
+
+.table-field {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  color: #333333;
+  white-space: nowrap;
+}
+
+#verified-box {
+  position: absolute;
+  width: 56px;
+  background-color: #40C9BB !important;
+  border-radius: 14.433px;
+}
+
+#verified-text {
+  width: 42.14px;
+  height: 8.08px;
+  font-family: BentonSans Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8.08247px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-left: 30%;
+  margin-top: -5px;
+}
+
+.user-detail {
+  background-color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.user-detail:hover {
+  background: linear-gradient(180deg, rgba(168, 182, 200, 0.377226) -28.12%, rgba(168, 182, 200, 0) 105.47%);
+  opacity: 0.75;
+  box-shadow: 0px 2px 4px #ecf1f8;
+}
+
+
+#no-data {
+  // align center of div
+  width: 90%;
+  text-align: center;
+  margin-top: 300px !important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #333333;
+}
+
+.user-summary {
+  height: 86px;
+  border: 0.5px solid #79828B;
+  border-radius: 24px;
+  padding: 10px;
+}
+
+.user-row {
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 114px;
+}
+
+#summary-text-body {
+  font-family: BentonSans Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 11px;
+  color: #A8B6C8;
+}
+
+.form-group {
+  margin-left: 10px;
+  padding-right: 10px;
+  width: 100% !important;
+}
+
+.text-input {
+  background: #FFFFFF;
+  border: 1px solid rgba(168, 182, 200, 0.19568);
+  box-sizing: border-box;
+  border-radius: 25px;
+  color: #333333;
+
+}
+
+
+.control-label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #A8B6C8;
+}
+
+.approve-buttons {
+  position: fixed;
+  background: #FFFFFF;
+  box-shadow: 3px 0px 4px rgba(0, 0, 0, 0.25);
+  left: 76%;
+  top: 90%;
+  width: 500px;
+  padding: 30px;
+  height: 116px;
+}
+
+
+#approve-btn {
+  background: #40C9BB;
+  font-weight: 100;
+  border-radius: 17.0943px;
+  border: none;
+  width: 139px;
+  font-size: 16px;
+  line-height: 16px;
+  height: 34px;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #40C9BB !important;
+  border-color: #40C9BB !important;
+  border-radius: 27.0943px !important;
+}
+
+#decline-btn {
+  color: #FF6E6E;
+  // make button only text
+  border: none;
+  background: none;
+  font-weight: 100;
+  width: 139px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+
+}
+
+
+// make only the div to be scrollable
+.scroll-div {
+  overflow-y: auto;
+  overflow-x: none;
+  height: 100%;
+  width: 100%;
+  // do not show scrollbar on x axis
+  overflow-x: hidden;
+
+}
+
+
+.create-team {
+  position: fixed;
+  background: #ffffff;
+  left: 35%;
+  top: 90%;
+  width: 500px;
+  padding: 30px;
+  height: 116px;
+
+}
+
+#new-team-btn {
+  background: #40c9bb;
+  font-weight: 100;
+  border-radius: 17.0943px;
+  border: none;
+  width: 200px;
+  font-size: 16px;
+  line-height: 16px;
+  height: 34px;
+  text-align: center;
+  font-weight: 100;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+#decline-team-btn {
+  background: none;
+  font-weight: 100;
+  border-radius: 17.0943px;
+  border: none;
+  width: 200px;
+  font-size: 16px;
+  line-height: 16px;
+  height: 34px;
+  text-align: center;
+  font-weight: 100;
+  margin-top: 15px;
+  margin-right: 5px;
+  color: #ff6e6e;
+}
+
+#content {
+  margin-top: 30px !important;
+  margin-left: 240px !important;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  //-webkit-appearance: none;
+  outline: none;
+}
+
+.fa {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.form-control{
+  border-radius: 2rem !important;
+  line-height: 2 !important;
+  font-size: 16px !important;
+  color: #333333;
+}
+
+.form-label {
+  color: #A8B6C8 !important;
+  font-size: 16px !important;
+}
+
+.decline {
+  color: red;
+}
+
+.badge {
+  border-radius: 1.5rem;
+}
+
+.bg-success {
+  --bs-bg-opacity: 1;
+  background-color: #40C9BB !important;
+}
+
+.bg-danger {
+  --bs-bg-opacity: 1;
+  background-color:  #aa1313 !important;
+}
+
+.bg-secondary {
+  --bs-bg-opacity: 1;
+  background-color: #ff6e6e !important;
+}
+

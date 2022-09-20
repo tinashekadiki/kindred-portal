@@ -1,0 +1,22 @@
+<div style="position: fixed; width: 100%" class="row">
+  <div class="col-sm-3">
+    <img src="../../../../assets/logo.svg" alt="logo" class="img-responsive" style="width: 150px;" routerLink="dashboard">
+  </div>
+  <div class="col-sm-7">
+    <input type="search" id="search-bar" placeholder="Type to search..." />
+  </div>
+  <div class="col-sm-2">
+    <div class="row user-row" style="border-left: 1px solid #aaaaaa;height: 50%;">
+      <div class="col-sm-3">
+        <img src="../../../../assets//icons/dash/profile.png" alt="logo" class="img-responsive" style="height: 50%;" />
+      </div>
+      <div class="col-sm-9 mt-1">
+        <span id="profile-name">{{userName}}</span>
+        <br>
+        <span id="profile-job" *ngIf="role === 'admin'">System Administrator</span>
+        <span id="profile-job" *ngIf="role === 'user'">System User</span>
+      </div>
+      <!-- <div class="col-sm">dd</div> -->
+    </div>
+  </div>
+</div>

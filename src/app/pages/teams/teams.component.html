@@ -1,0 +1,240 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+  <div class="row mb-3 mt-3">
+    <div class="col-lg-9">
+      <!-- left section -->
+      <div class="row mb-3 mt-3">
+        <div class="col-lg offset-3">
+          <span id="column-title">Teams (527)</span>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-6 offset-3">
+          <img src="../../../assets/icons/userv/filter.svg" alt="" />
+        </div>
+        <div class="col-lg">
+          <span id="pagination-title" style="width: 100%; white-space: nowrap">Show on page <b>1-20</b> out of 57 <>
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3 offset-3">
+        <div class="col-lg-1">
+          <!-- empty -->
+        </div>
+        <div class="col-lg-2 table-title">Team(A-Z)</div>
+        <div class="col-lg-2 table-title">Speciality</div>
+        <div class="col-lg-3 table-title">Province/state</div>
+        <div class="col-lg-2 table-title">Type</div>
+        <div class="col-lg-2 table-title">Weekly Status</div>
+      </div>
+
+      <div class="row mb-3 user-detail mt-4 offset-3" *ngFor="let team of allTeams" (click)="setTeam(team)">
+        <div class="col-lg-1 table-field">
+          <img src="../../../assets/icons/userv/flag.svg" alt="" style="width: 17px; margin-top: -5px" /><span
+            style="font-size: 12px"> SA</span>
+        </div>
+        <div class="col-lg-2 table-field">{{ team.name }}</div>
+        <div class="col-lg-2 table-field">{{ team.speciality }}</div>
+        <div class="col-lg-3 table-field">{{ team.province }}</div>
+        <div class="col-lg-2 table-field">{{ team.type }}</div>
+        <div class="col-lg-2 table-field" *ngIf="team.weekly_status === true">
+          Active
+        </div>
+        <div class="col-lg-2 table-field" *ngIf="team.weekly_status === false">
+          Domant
+        </div>
+      </div>
+      <div class="row create-team">
+        <div class="col col-12" style="text-align: center">
+          <button type="button" id="new-team-btn" class="btn btn-primary btn-block" routerLink="/teams/new">
+            CREATE TEAM
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" >
+      <div *ngIf="!noData" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); height: 100vh">
+        <div class="row mb-3 mt-3">
+          <div class="col-lg-12">
+            <span id="column-title" style="margin-left: 15px">Team Info</span>
+          </div>
+        </div>
+        <div class="row mb-3 mt-3" id="no-data">
+          <span class="col-lg" style="padding-top: 10px">Select a team to see detailed information here</span>
+        </div>
+      </div>
+      <!-- right section -->
+      <div *ngIf="noData" class="right-section">
+      <div class="row mb-4 mt-5">
+        <div class="col" id="subspectitile">
+          {{ teamDetails.name }}
+        </div>
+        <div class="col" id="view-less">
+          <p>View All Team Members</p>
+        </div>
+      </div>
+      <div class="row mb-4 mt-5">
+        <div class="col-6">
+          <img src="{{teamDetails.photoUrl}}" *ngIf="!isImageSaved && teamDetails.photoUrl !== ''" class="rounded" style="width:110px !important;border-radius: 50%;"/>
+          <img src="../../../assets/icons/dash/clinical-blank.svg" *ngIf="!isImageSaved && teamDetails.photoUrl == ''"/>
+          <img src="{{cardImageBase64}}" class="rounded" *ngIf="isImageSaved" style="width:110px !important;border-radius: 50%;"/>
+        </div>
+        <div class="col-6" id="view-less" style="margin-top: 15px">
+            <label for="files" >Edit Image</label>
+            <input id="files" style="visibility:hidden;" type="file" (change)="fileChangeEvent($event)">
+            <label (click)="removeImage()">Delete Image</label>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Name of team</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-name" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Name of Facility</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-facility" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Type of Facility</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-facility" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Level</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-level" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Phone Number</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-phone" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Email</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-email" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-6" id="subspectitile">Location Details (2)</div>
+        <div class="col-6" id="view-less">View Less</div>
+      </div>
+      <div class="row mb-4">
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Country</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-country"/>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Province / State</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-state"/>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Region</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-region" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Referral Cluster</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-cluster"/>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">
+              Address</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-add" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Latitude/Longitude</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-lat"/>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Working Hours</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control text-input" id="user-name" name="team-name"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="mt-5" id="subspectitile">Bed Summary</h1>
+      <p>Total Number of beds - {{ teamDetails.beds_total }}</p>
+      <p>Beds Available - {{ teamDetails.beds_available }}</p>
+      <h1 class="mt-5" id="subspectitile">Roster</h1>
+      <div class="row mb-4">
+        <div class="col col">
+          <p>March Roster 2021</p>
+          <p>Last Updated 4-3-21</p>
+        </div>
+        <div class="col col">AberdeenMarch.csv</div>
+      </div>
+      <div class="row mb-5 mt-3">
+        <div class="col-12 patient-details-title" style="font-size: 10px">
+          Chat created: 12-03-2021 11:07am (GMT+2):
+        </div>
+        <div class="col-12 patient-details-title mb-3" style="font-size: 10px">
+          Refferal resolved: 12-03-2021 11:07am (GMT+2):
+        </div>
+      </div>
+      <div class="row mt-3 approve-buttons">
+        <!-- primary button -->
+        <div class="col-sm">
+          <button type="button" id="approve-btn" class="btn btn-primary btn-block" (click)="updateTeam()">
+            SAVE CHANGES
+          </button>
+        </div>
+        <div class="col-sm">
+          <button type="button" id="decline-btn" class="btn btn-primary btn-block">
+            DELETE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

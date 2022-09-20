@@ -1,0 +1,59 @@
+<div class="container col-md-12">
+  <img class="p-2" src="../../../../assets/logoland.svg">
+  <div class="text-center">
+    <h1>Welcome Back</h1>
+  </div>
+
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-6">
+      <div class="backdrop col-md-12">
+        <div class="white-overlay p-3">
+          <div class="form-group">
+            <div *ngIf="errorLogin" class="mb-3 alert alert-danger">
+              Invalid login. Check your credentials and try again.
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" id="email" style="text-indent:30px;" [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="password" style="text-indent:30px;" [(ngModel)]="password">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="text-center">
+    <button class="login-btn px-5 py-3 btn btn-block" (click)="login()">LOGIN</button>
+    <br>
+    <br>
+    <a href="#">Forgot Password?</a>
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+  <div class="row p-5 m-5">
+    <div class="col-md-4">
+      <img class="mx-auto d-block" src="../../../../assets/icons/slide-1.svg">
+      <h6 class="text text-center">Get the Work Done</h6>
+      <p class="text text-center">Find Teams, Manage Beds, Refer, Add Call Duty Rosters, book Services, Chat and much
+        more!</p>
+    </div>
+    <div class="col-md-4">
+      <img class="mx-auto d-block" src="../../../../assets/icons/slide-2.svg">
+      <h6 class="text text-center">Communicate</h6>
+      <p class="text text-center">Get in touch with and learn from other health-care workerd at your point of need!</p>
+    </div>
+    <div class="col-md-4">
+      <img class="mx-auto d-block" src="../../../../assets/icons/slide-3.svg">
+      <h6 class="text text-center">Secure and Easy</h6>
+      <p class="text text-center">Secure access to all health care information.</p>
+    </div>
+  </div>
+</div>
+

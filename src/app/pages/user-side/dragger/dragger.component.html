@@ -1,0 +1,27 @@
+<!-- <button class="btn btn-primary" (click)="printJson()">Print JSON</button>
+<form-builder [form]="form" ></form-builder>
+
+<formio [form]='{
+    "title": "My Test Form",
+    "components": generatedJSON
+}'></formio>
+ -->
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+
+  <div class="row mb-3 mt-3">
+    <div class="col-lg offset-2">
+      <h4 class="mt-2 mb-3">Edit : {{formName}} Referral Form</h4>
+<!--      <form-builder [form]="form"></form-builder>-->
+      <div class="row">
+        <div class="col-lg  offset-2">
+          <button class="btn btn-success" (click)="saveForm()"
+            style="text-align: center;margin:auto;position: fixed;display: flex;"><i class="fa fa-save" style="font-size: 30px;margin-right:10px"></i>Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

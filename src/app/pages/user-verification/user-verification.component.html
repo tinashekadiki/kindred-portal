@@ -1,0 +1,159 @@
+<br>
+<br>
+<br>
+
+<div id="content" style="color: #333333">
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row m-3">
+        New User Requests ({{count}})
+      </div>
+      <div class="row m-3">
+        <div class="col-md-4">
+      <span>
+<!--        <img src="../../../assets/icons/userv/filter.svg" alt=""/>-->
+        <!--        <select>-->
+        <!--          <option style="background-image:url('../../../assets/icons/userv/filter.svg');">Filter</option>-->
+        <!--          <option style="background-image:url('../../../assets/icons/userv/filter.svg');">Declined</option>-->
+        <!--          <option style="background-image:url('../../../assets/icons/userv/filter.svg');">Verified</option>-->
+        <!--        </select>-->
+        <!-- Example single danger button -->
+        <div class="btn-group">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+            <img src="../../../assets/icons/userv/filter.svg" alt=""/>
+
+          </button>
+          <div class="dropdown-menu">
+            <p class="dropdown-item" (click)="pagify(false, 3)">Declined</p>
+            <p class="dropdown-item" (click)="pagify(false, 2)">Verified</p>
+            <p class="dropdown-item" (click)="pagify(false, 1)">Unverified</p>
+          </div>
+        </div>
+      </span>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+          Showing on page <b> {{ page }}</b> of {{getPageNumber()}} pages
+          <span>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-end">
+                <li *ngIf="page > 0"  (click)="pagify(true, -1)" class="page-item">
+                   <i class="fa fa-angle-left"></i>
+                </li>
+                <li *ngIf="page < getPageNumber()" (click)="pagify(false, -1)" class="page-item">
+                 <i class="fa fa-angle-right"></i>
+                </li>
+              </ul>
+            </nav>
+          </span>
+        </div>
+      </div>
+      <div class="row m-3" style="text-transform: uppercase; color:  #79828B">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Name</div>
+        <div class="col-md-2">Email</div>
+        <div class="col-md-2">Facility</div>
+        <div class="col-md-2">Specialty</div>
+        <div class="col-md-2">Status</div>
+        <div class="col-md-1">
+          <input (change)="selectAllUsers()" class="form-check-input me-1" type="checkbox"
+                 value="{{multipleUsers.length}}" aria-label="...">
+        </div>
+      </div>
+
+      <div *ngFor="let user of allUsers" (click)="showIndividualUser(user)" class="row m-5" style="color: #333333">
+        <div class="col-md-1">
+          <img src="{{getCountry(user.country)[0].image}}" alt="" style="width: 17px; margin-top: -5px"/><span
+          style="font-size: 12px"> {{user.country}}</span>
+        </div>
+        <div class="col-md-2">{{ user.firstName  }} {{ user.lastName  }}</div>
+        <div class="col-md-2">{{user.email}}</div>
+        <div class="col-md-2">{{ user.facility }}</div>
+        <div class="col-md-2">{{ user.speciality }}</div>
+        <div class="col-md-2"><span
+          class="badge bg-{{user.is_verified == 1 ? 'primary' : user.is_verified == 2 ? 'success' : 'danger'}}">
+      {{user.is_verified == 1 ? 'Not Verified' : user.is_verified == 2 ? 'Verified' : 'Declined'}}
+    </span>
+        </div>
+        <div class="col-md-1">
+          <input (change)="addToMultipleUsers(user._id)" class="form-check-input me-1" type="checkbox"
+                 value="{{multipleUsers.includes(user._id)}}" [checked]=multipleUsers.includes(user._id)>
+        </div>
+      </div>
+
+      <div class="row m-3" *ngIf="allUsers.length === multipleUsers.length">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-block" (click)="approveAllUsers()">Approve</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-block decline" (click)="declineAllUsers()">Decline</button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+    <div class="col-md-3" *ngIf="userDetails._id.length">
+      <div class="row">
+        <div class="col-md-4">
+          <img width="50" height="auto" src="../../../assets/icons/dash/hosp.png" style="height: 47px"/>
+        </div>
+        <div class="col-md-8" style="border: solid  grey 1px; border-radius: 15px">
+          <p><b>Registration Status: </b> {{userDetails.is_active ? 'ACTIVE' : 'INACTIVE'}} </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+      </div>
+      <div class="col-md-12 m-3">
+        <label class="form-label">First Name</label>
+        <input [value]="userDetails.firstName" type="email" class="form-control">
+      </div>
+      <div class="col-md-12 m-3">
+        <label class="form-label">First Name</label>
+        <input [value]="userDetails.firstName" type="email" class="form-control">
+      </div>
+      <div class="col-md-12 m-3">
+        <label class="form-label">Last Name</label>
+        <input [value]="userDetails.lastName" type="email" class="form-control">
+      </div>
+      <!--      <div class="col-md-12">-->
+      <!--        <label for="inputEmail4" class="form-label">First Name</label>-->
+      <!--        <input [value]="userDetails.firstName" type="email" class="form-control" id="inputEmail4">-->
+      <!--      </div>-->
+      <div class="col-md-12 m-3">
+        <label class="form-label">Phone Number</label>
+        <input [value]="userDetails.phoneNumber" type="email" class="form-control">
+      </div>
+      <div class="col-md-12 m-3">
+        <label class="form-label">Email Address</label>
+        <input [value]="userDetails.email" type="email" class="form-control">
+      </div>
+      <div class="col-md-12 m-3">
+        <label class="form-label">Type of Health Worker</label>
+        <input [value]="userDetails.type" type="email" class="form-control">
+      </div>
+
+      <div class="col-md-12 m-3">
+        <label class="form-label">Registration Number</label>
+        <input [value]="userDetails.reg_number" type="email" class="form-control">
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+          <button class="btn btn-primary btn-block" (click)="verifyUser()">Approve</button>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <button class="btn btn-block decline" (click)="declineUser()">Decline</button>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

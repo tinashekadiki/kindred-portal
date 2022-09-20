@@ -1,0 +1,64 @@
+<div class="sidebar-container" style="height: 100%">
+  <ul class="sidebar-navigation">
+    <li>
+      <a routerLink="/dashboard">
+        <img src="../../assets/icons/dash/home.svg" alt="dashboard"/>
+        <span [class]="currentRoute('dashboard') ? 'page-title-active' : 'page-title'">Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/userverification">
+        <img
+          src="../../assets/icons/dash/user-verification.svg"
+          alt="dashboard"
+        />
+        <span [class]="currentRoute('userv') ? 'page-title-active' : 'page-title'">User Verification</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/users">
+        <img src="../../assets/icons/dash/users.svg" alt="dashboard"/>
+        <span [class]="currentRoute('users') ? 'page-title-active' : 'page-title'">Users</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/facilities">
+        <img src="../../assets/icons/dash/facilities.svg" alt="dashboard"/>
+        <span [class]="currentRoute('fac') ? 'page-title-active' : 'page-title'">Facilities</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/speciality">
+        <img src="../../assets/icons/dash/speciality.svg" alt="dashboard"/>
+        <span [class]="currentRoute('spec') ? 'page-title-active' : 'page-title'">Specialities</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/teams">
+        <img src="../../assets/icons/dash/teams.svg" alt="teams"/>
+        <span [class]="currentRoute('team') ? 'page-title-active' : 'page-title'">Teams</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/refferals">
+        <img src="../../assets/icons/dash/refferals.svg" alt="refferals"/>
+        <span [class]="currentRoute('ref') ? 'page-title-active' : 'page-title'">Referrals</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/reports">
+        <img src="../../assets/icons/dash/reports.svg" alt="reports"/>
+        <span [class]="currentRoute('rep') ? 'page-title-active' : 'page-title'">Reports</span>
+      </a>
+    </li>
+    <li (click)="logout()" class="logout">
+      <a>
+        <img src="../../assets/icons/dash/logout.svg" alt="reports"/>
+        <span class="page-title"> Logout</span>
+      </a>
+    </li>
+  </ul>
+
+
+</div>
+

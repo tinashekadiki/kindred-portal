@@ -1,0 +1,63 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+  <div class="row mb-3 mt-2 offset-2">
+    <div class="col col-6">
+      <h1 id="column-title" class="mt-3">CREATE A REFERRAL FORM</h1>
+      <div class="row mb-3 mt-2 ">
+        <div class="col col-lg-12 mb-3 mt-2">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Select or add speciality</label>
+            <div class="col-lg-12 select_box">
+                <select class="form-control" >
+                  <option value={{spec._id}} *ngFor="let spec of allSpecialitie" (click)="getAllSubSpecialities();getAllFacilities();getTeamBySpeciality()">{{spec.name}}</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3 mt-2">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Select sub-speciality (optional)</label>
+            <div class="col-lg-12 select_box">
+              <select class="form-control form-select" >
+                <option value={{spec._id}} *ngFor="let spec of allSubSpecialitie">{{spec.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3 mt-2">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Select Facility</label>
+            <div class="col-lg-12 select_box">
+                <select class="form-control form-select" >
+                <option value={{fac._id}} *ngFor="let fac of allFacilities">{{fac.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-12 mb-3 mt-2">
+          <div class="form-group">
+            <label for="user-name" class="col-lg-12 control-label">Select Team</label>
+            <div class="col-lg-12 select_box">
+                <select class="form-control form-select">
+                    <option value={{tm._id}} *ngFor="let tm of allTeams">{{tm.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row create-team">
+          <div class="col col-12" style="text-align: center">
+            <button type="button" id="new-team-btn" class="btn btn-primary btn-block" (click)="createReferralForm()">
+              CREATE
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

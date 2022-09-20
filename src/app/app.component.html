@@ -1,0 +1,13 @@
+<div id="container" style="overflow: hidden;">
+  <div id="content">
+    <app-topbar *ngIf="getCurrentRoute() != '/' && getCurrentRoute() != '/landing'"></app-topbar>
+    <app-sidebar *ngIf="getCurrentRoute() != '/' && getCurrentRoute() != '/landing'"></app-sidebar>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<notifier-container></notifier-container>
+<ngx-spinner
+  bdColor="rgba(229, 239, 241, 1)"
+  template="<img width='200' height='200' src='https://media4.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif' />"
+>
+</ngx-spinner>

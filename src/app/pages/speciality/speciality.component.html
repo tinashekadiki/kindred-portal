@@ -1,0 +1,180 @@
+<br>
+<br>
+<br>
+<br>
+<div id="content">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+    <div class="row mb-3 mt-3">
+      <div class="col-lg-9">
+        <!-- left section -->
+        <div class="row mb-3 mt-3">
+          <div class="col-lg offset-3 text-right">
+            <span id="column-title"
+              >Specialities (1)</span>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <!-- <div class="col-lg-5 offset-4">
+            <img src="../../../assets/icons/userv/filter.svg" alt="" />
+          </div> -->
+          <div class="col-lg-3 offset-9">
+            <span id="pagination-title" style="width: 100%; white-space: nowrap"
+              >Show on page <b>1-20</b> out of 57 <>
+            </span>
+          </div>
+        </div>
+        <div class="row mb-3 offset-3">
+          <div class="col-lg-1 text-center">
+            <!-- empty -->
+          </div>
+          <div class="col-lg-2 table-title text-center">Speciality (A-Z)</div>
+          <div class="col-lg-3 table-title text-center">creator</div>
+          <div class="col-lg-3 table-title text-center">Date Created</div>
+          <div class="col-lg-3 table-title text-center">Last Edited</div>
+        </div>
+        <!-- Verified -->
+        <div class="row mb-3 user-detail mt-2 offset-3" *ngFor="let spec of allSpecialities" (click)="showIndividualSpeciality(spec)">
+          <div class="col-lg-1 table-field text-center">
+            <img
+              src="../../../assets/icons/dash/heart.svg"
+              alt=""
+              style="width: 17px; margin-top: -5px"
+            />
+          </div>
+          <div class="col-lg-2 table-field text-center">{{spec.name}}</div>
+          <div class="col-lg-3 table-field text-center">{{spec.creator}}</div>
+          <div class="col-lg-3 table-field text-center">{{spec.createdAt }}</div>
+          <div class="col-lg-3 table-field text-center">{{spec.updatedAt }}</div>
+        </div>
+        <div class="row create-team">
+            <div class="col col-12" style="text-align: center">
+              <button
+                type="button"
+                id="new-team-btn"
+                class="btn btn-primary btn-block"
+                routerLink ="/speciality/new"
+              >
+                ADD NEW SPECIALITY
+              </button>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-3" id="right-section">
+        <div *ngIf="!noData" >
+          <div class="row mb-3 mt-3">
+            <div class="col-lg-12">
+              <span id="column-title" style="margin-left: 15px">Speciality Info</span>
+            </div>
+          </div>
+          <div class="row mb-3 mt-3" id="no-data">
+            <span class="col-lg" style="padding-top: 10px">Select a speciality to see detailed information here</span>
+          </div>
+        </div>
+        <div *ngIf="noData" >
+        <!-- right section -->
+        <h4 class="mt-5" id="section-title">{{focusSpeciality.name}}</h4>
+        <div class="row mb-4 mt-5">
+          <div class="col-3">
+              <img src="../../../assets/icons/dash/clinical.svg">
+          </div>
+          <div class="col" id="view-less" style="margin-top: 15px;">
+              <p>Edit Icon</p>
+              <p>Delete Icon</p>
+            </div>
+        </div>
+        <div class="row mb-4 ">
+        <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Proffession</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Speciality Name</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Specialist Name</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row mb-4 ">
+              <div class="col-6" id="subspectitile">
+                  Sub Specialities ({{focusSpeciality.sub_speciality.length}})
+              </div>
+              <div class="col-6 " id="view-less">
+                View Less
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div *ngFor="let specc of focusSpeciality.sub_speciality">
+              <div class="col-lg-2" >
+                <img src="../../../assets/icons/dash/spider.svg" class="img-responsive img-thumbnail" alt=""
+                style="border: none" />
+            </div>
+            <div class="col-lg-10 speciality-title" style="margin-top: 20px;">
+                {{specc}}
+            </div>
+            </div>
+            <p id="view-less" class="mt-5">Create new Sub-speciality</p>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-6 mt-4 mb-2">
+                <h2 id="subspectitile">Teams({{focusSpeciality.team.length}})</h2>
+              </div>
+              <div class="col-lg-6 mt-4 mb-2">
+                <h6 id="view-less">View Less</h6>
+              </div>
+              <div class="col col-lg-12" *ngFor="let teams of focusSpeciality.team">
+                <img src="../../../assets/icons/dash/teams-colored.svg" class="img-responsive img-thumbnail" alt=""
+                  style="border: none" />
+                {{teams}}
+              </div>
+          </div>
+        <div class="row mb-5 mt-3">
+          <div class="col-12 patient-details-title" style="font-size: 10px">
+            Chat created: 12-03-2021 11:07am (GMT+2):
+          </div>
+          <div class="col-12 patient-details-title mb-3" style="font-size: 10px">
+            Refferal resolved: 12-03-2021 11:07am (GMT+2):
+          </div>
+        </div>
+        <div class="row mt-3 approve-buttons">
+          <!-- primary button -->
+          <div class="col-sm">
+            <button
+              type="button"
+              id="approve-btn"
+              class="btn btn-primary btn-block"
+              (click)="updateSpeciality()"
+            >
+              SAVE CHANGES
+            </button>
+          </div>
+          <div class="col-sm">
+            <button
+              type="button"
+              id="decline-btn"
+              class="btn btn-primary btn-block"
+              (click)="deleteSpeciality()"
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

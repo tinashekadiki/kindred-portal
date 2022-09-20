@@ -1,0 +1,150 @@
+th {
+  background-color: #40C9BB;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px;
+
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  color: #79828B;
+}
+
+td {
+  white-space: normal !important;
+  word-wrap: break-word;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+table {
+  table-layout: fixed;
+}
+
+
+.item:hover {
+  cursor: pointer;
+}
+
+#date-chooser {
+  box-shadow: 0px 2px 4px #DADADA;
+  border-radius: 25px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #333333;
+  padding: 10px;
+  border: none;
+  margin-left: 20px;
+  background-color: #ffffff;
+}
+
+.title {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+.search {
+  margin-right: 10px
+}
+
+.search-item {
+  border: 1px solid #40C9BB;
+  border-radius: 25px;
+  text-indent: 5px;
+}
+
+.select-item {
+  border: 1px solid #79828B;
+  border-radius: 25px;
+  text-indent: 5px;
+}
+
+#save-button {
+  background: #40C9BB;
+  font-weight: 100;
+  border-radius: 17.0943px;
+  border: none;
+  width: 139px;
+  font-size: 16px;
+  line-height: 16px;
+  height: 34px;
+  text-align: center;
+}
+
+.checkbox {
+  border-radius: 30px;
+  -moz-border-radius: 50px;
+}
+
+
+
+#currentRank {
+  font-family: BentonSans;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #979797
+}
+
+.form-check-input{
+  border: 1px solid #40C9BB;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.checkbox:checked {
+	background-color: #40C9BB;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #40C9BB;
+  opacity: 1;
+  /* Firefox */
+  font-size: 14px;
+  line-height: 20px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #40C9BB;
+  font-size: 14px;
+  line-height: 20px;
+
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #40C9BB;
+  font-size: 14px;
+  line-height: 20px;
+
+}
+
+.call{
+  font-weight: 100;
+}
+
+.select-type{
+  background-color: none;
+  box-shadow: 0px 0px 0px #DADADA !important;
+  border : 1px solid #cccccc !important;
+  text-align: left !important;
+}
+
+
+select:hover{
+  cursor: pointer;
+}
+

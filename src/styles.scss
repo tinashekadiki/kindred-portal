@@ -1,0 +1,129 @@
+@import "./node_modules/angular-notifier/styles.scss";
+
+@font-face {
+  font-family: BentonSans;
+  src: url(assets/fonts/BentonSansRegular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: BentonSansLight;
+  src: url(assets/fonts/BentonSansLight.otf) format("opentype");
+}
+
+@font-face {
+  font-family: BentonSansBold;
+  src: url(assets/fonts/BentonSansBold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: BentonSansExtraLight;
+  src: url(assets/fonts/BentonSansLight.otf) format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'BentonSans';
+}
+
+.content-container {
+  padding-left: 220px;
+}
+
+
+
+angular2csv>button {
+  color: transparent;
+  /* hides 'download' label */
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  background: transparent;
+  /* Collapse the original line */
+}
+
+angular2csv>button::after {
+  content: "Download Spreadsheet";
+  /* new button label */
+  color: #333333;
+  /* color so we can see it */
+  display: block;
+  background-color: transparent;
+  line-height: initial;
+  /* New content takes up original line height */
+}
+
+
+// to remove outline on bootstrap elements
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+
+// for searcher
+
+.alpha-search .alpha-search-content .alpha-indicator>div:nth-child(1)>div {
+
+  background: #40C9BB;
+}
+
+.alpha-search .alpha-search-content .alpha-indicator>div:nth-child(2)>svg {
+  fill: #40C9BB;
+}
+
+.alpha-search .alpha-search-content .alpha-search-input .icon:first-child>svg {
+  fill: #40C9BB;
+  stroke: #40C9BB;
+}
+
+.alpha-search .alpha-search-content .alpha-search-area>ul>li>span {
+  border-bottom: 1px #40C9BB solid;
+  color: #40C9BB;
+}
+
+select{
+  background-color: #fff;
+}
+
+// for select boxes
+
+.select_box {
+  overflow: hidden;
+  border: 1px solid rgba(168, 182, 200, 0.1975);
+  position: relative;
+
+  border-radius: 24px;
+
+}
+
+.select_box:after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #40c9bb;
+  position: absolute;
+  top: 40%;
+  right: 5px;
+  content: "";
+  z-index: 98;
+}
+
+.select_box select {
+
+  border: 0;
+  position: relative;
+  background: none;
+}

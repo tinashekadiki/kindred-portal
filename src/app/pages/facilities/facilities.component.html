@@ -1,0 +1,245 @@
+<!--<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">-->
+<!--  <p style="color: white">Loading...</p>-->
+<!--</ngx-spinner>-->
+<div id="content ">
+<!--  <app-topbar></app-topbar>-->
+<!--  <app-sidebar></app-sidebar>-->
+  <div class="row mb-3 mt-3">
+    <div class="col-lg-9">
+      <!-- left section -->
+      <div class="row mb-3 mt-3">
+        <div class="col-lg offset-3">
+          <span id="column-title">Facilities ({{allFacilities.length || 0}})</span>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-lg-7 offset-3">
+          <img src="../../../assets/icons/userv/filter.svg" alt="" />
+        </div>
+        <div class="col-lg">
+          <span id="pagination-title" style="width: 100%; white-space: nowrap">Show on page <b>1-20</b> out of 57 <>
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3 offset-3">
+        <div class="col-lg-2 table-title text-center">Name</div>
+        <div class="col-lg-2 table-title text-center">Email</div>
+        <div class="col-lg-2 table-title text-center">Province/state</div>
+        <div class="col-lg-3 table-title text-center">Address</div>
+        <div class="col-lg-3 table-title text-center">Status</div>
+      </div>
+
+      <!-- Not Verified -->
+      <div class="row mb-3 user-detail mt-4 offset-3" *ngFor="let fac of allFacilities" (click)="showIndividualFacility(fac)">
+        <div class="col-lg-2 table-field  text-center">{{fac.name}}</div>
+        <div class="col-lg-2 table-field  text-center">{{fac.email}}</div>
+        <div class="col-lg-2 table-field  text-center">{{fac.province}}</div>
+        <div class="col-lg-3 table-field  text-center">
+          {{fac.address}}
+        </div>
+        <div class="col-lg-3 table-field  text-center" *ngIf="fac.status === false">Domant</div>
+        <div class="col-lg-3 table-field  text-center" *ngIf="fac.status === true">Active</div>
+      </div>
+      <div class="row create-team">
+        <div class="col col-12" style="text-align: center">
+          <button
+            type="button"
+            id="new-team-btn"
+            class="btn btn-primary btn-block"
+            routerLink ="/facilities/new"
+          >
+            ADD FACILITY
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" id="right-section">
+      <div *ngIf="!focusFacility._id.length" >
+        <div class="row mb-3 mt-3">
+          <div class="col-lg-12">
+            <span id="column-title" style="margin-left: 15px">Facility Info</span>
+          </div>
+        </div>
+        <div class="row mb-3 mt-3" id="no-data">
+          <span class="col-lg" style="padding-top: 10px">Select a facility to see detailed information here</span>
+        </div>
+      </div>
+      <!-- user detail expanded -->
+      <div class="scroll-div mt-2" *ngIf="focusFacility._id.length">
+        <div class="row right-section" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); height: 100%">
+          <div class="col-lg-9 mt-5">
+            <h2 class="right-section-titles" style="color: #000">{{focusFacility.name}}</h2>
+          </div>
+          <div class="col-lg-3 mt-5">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12 mb-3 mt-1">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Name of Facility</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="focusFacility.name" type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Type of Facility</label>
+              <div class="col-lg-12">
+                <select [(ngModel)]="focusFacility.facility_type" class="form-control text-input" >
+                  <option value="Public">Public</option>
+                  <option value="Public">Private</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Level</label>
+              <div class="col-lg-12">
+                <select [(ngModel)]="focusFacility.level" class="form-control text-input" >
+                  <option value="Level 1- Primary Health Care Clinic">Level 1- Primary Health Care Clinic</option>
+                  <option value="Level 1 - Mobile Clinic">Level 1 - Mobile Clinic</option>
+                  <option value="Level 1 - Community Health Care Centre">Level 1 - Community Health Care Centre</option>
+                  <option value="Level 1 - District Hospital">Level 1 - District Hospital</option>
+                  <option value="Level 2- Regional Hospital">Level 2- Regional Hospital</option>
+                  <option value="Level 3 - Provincial Tertiary Hospital">Level 3 - Provincial Tertiary Hospital</option>
+                  <option value="Level 4 - Central Hospital">Level 4 - Central Hospital</option>
+                  <option value="Level 4 - Specialised hospital">Level 4 - Specialised hospital</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Phone Number</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="focusFacility.phone" type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Email Address</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="focusFacility.email" type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 mt-4">
+            <h2 class="right-section-titles">Location Details</h2>
+          </div>
+          <div class="col-lg-3 mt-4">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Country</label>
+              <div class="col-lg-12">
+                <select class="form-control text-input" >
+                  <option value={{country.name}} *ngFor="let country of countries" (click)="getAllStates(country.isoCode)">{{country.name}} ({{country.phonecode}})</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Province/State</label>
+              <div class="col-lg-12">
+                <select [(ngModel)]="focusFacility.province" class="form-control text-input">
+                  <option [value]=state.name *ngFor="let state of states">{{state.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Region</label>
+              <div class="col-lg-12">
+                <input [(ngModel)]="focusFacility.region" type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Referral Cluster</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Address</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"/>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Longitude/Latitude</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"
+                 />
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-12 mb-3">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label">Working Hours</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control text-input" id="user-name"  />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4 mb-2">
+            <h2 class="right-section-titles">Teams({{focusFacility.team.length}})</h2>
+          </div>
+          <div class="col-lg-6 mt-4 mb-2">
+            <h6 class="view-less-btn">View Less</h6>
+          </div>
+          <div class="col col-lg-12" *ngFor="let teams of focusFacility.team">
+            <img src="../../../assets/icons/dash/teams-colored.svg" class="img-responsive img-thumbnail" alt=""
+              style="border: none" />
+            {{teams}}
+          </div>
+
+
+          <div class="col col-lg-12 mb-5 mt-5">
+            <!-- text input with title -->
+            <div class="form-group">
+              <label for="user-name" class="col-lg-12 control-label" style="font-size: 12px">Last Logged in:
+                12-03-2021</label>
+              <label for="user-name" class="col-lg-12 control-label" style="font-size: 12px">Date of Registration: 08:36
+                (GMT+2)</label>
+              <label for="user-name" class="col-lg-12 control-label" style="font-size: 12px">Time of Registration: 08:36
+                (GMT+2)</label>
+              <label for="user-name" class="col-lg-12 control-label mb-5" style="font-size: 12px">Device Used: iPhone
+                X</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3 approve-buttons">
+          <!-- primary button -->
+          <div class="col-sm">
+            <button type="button" id="approve-btn" class="btn btn-primary btn-block" (click)="updateFacility()" [disabled] = "focusFacility._id === ''">
+              SAVE CHANGES
+            </button>
+          </div>
+          <div class="col-sm">
+            <button type="button" id="decline-btn" class="btn btn-primary btn-block" (click)="deleteFacility()" [disabled] = "focusFacility._id === ''">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

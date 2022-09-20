@@ -1,0 +1,91 @@
+.text-input {
+    background: #ffffff;
+    border: 1px solid rgba(168, 182, 200, 0.19568);
+    box-sizing: border-box;
+    border-radius: 25px;
+    color: #333333;
+  }
+
+  .control-label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #a8b6c8;
+  }
+
+  .form-group {
+    margin-left: 10px;
+    padding-right: 10px;
+    width: 100% !important;
+  }
+
+  #view-less {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: #40c9bb;
+  }
+
+  #column-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333333;
+  }
+  
+
+  .create-team {
+    position: fixed;
+    background: none;
+    left: 35%;
+    top: 90%;
+    width: 500px;
+    padding: 30px;
+    height: 116px;
+  
+  }
+
+  #new-team-btn {
+    background: #40c9bb;
+    font-weight: 100;
+    border-radius: 17.0943px;
+    border: none;
+    width: 200px;
+    font-size: 16px;
+    line-height: 16px;
+    height: 34px;
+    text-align: center;
+    font-weight: 100;
+    margin-top:15px
+  }
+
+  #date-chooser {
+    box-shadow: 0px 2px 4px #DADADA;
+    border-radius: 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    width: 165px;
+    color: #333333;
+    padding: 10px;
+    border: none;
+  
+  }
+  
+  #left-side {
+  
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #79828B;
+  }
+  

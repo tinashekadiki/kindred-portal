@@ -1,0 +1,57 @@
+{
+  "name": "kportal",
+  "version": "0.0.0",
+  "engines": {
+    "node": "14.17.1"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "node server.js",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~14.0.5",
+    "@angular/cdk": "^13.3.9",
+    "@angular/common": "~14.0.5",
+    "@angular/compiler": "~14.0.5",
+    "@angular/core": "~14.0.5",
+    "@angular/elements": "^14.0.5",
+    "@angular/forms": "~14.0.5",
+    "@angular/platform-browser": "~14.0.5",
+    "@angular/platform-browser-dynamic": "~14.0.5",
+    "@angular/router": "~14.0.5",
+    "@ctrl/ngx-csv": "^4.0.0",
+    "@swimlane/ngx-charts": "^18.0.1",
+    "alphabet-filter": "^1.2.2",
+    "angular-notifier": "^12.0.0",
+    "bootstrap": "^5.0.2",
+    "country-flag-emoji-json": "^2.0.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
+    "ngx-spinner": "^14.0.0",
+    "popper.js": "^1.16.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.1.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~14.0.5",
+    "@angular/cli": "~14.0.5",
+    "@angular/compiler-cli": "~14.0.5",
+    "@types/jasmine": "~3.6.0",
+    "@types/lodash": "^4.14.176",
+    "@types/node": "^12.11.1",
+    "jasmine-core": "~3.7.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "typescript": "~4.7.4"
+  }
+}
